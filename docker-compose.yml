@@ -1,9 +1,9 @@
-version: "3.8"
-
 services:
+
   mysql:
     image: mysql:8
     container_name: mysql-db
+    restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: jwt_auth
@@ -13,6 +13,7 @@ services:
   backend:
     build: .
     container_name: security-backend
+    restart: always
     ports:
       - "9090:9090"
     depends_on:
